@@ -4,7 +4,6 @@ from django.utils import timezone
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 
-from . import serializers
 
 # Create your views here.
 
@@ -24,5 +23,5 @@ class UserDetails(APIView):
             "github_repo_url": github_repo_url,
             "status_code": 200,
         }
-        # serializer = serializers.UserDetails(data)
+
         return Response(data)
