@@ -18,11 +18,11 @@ class UserDetails(APIView):
         data = {
             "slack_name": request.query_params.get("slack_name", "Efosa Charles-Abu"),
             "current_day": timezone.now().strftime("%A"),
-            "utc_time": timezone.now(),
+            "utc_time": timezone.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
             "track": request.query_params.get("track", "backend"),
             "github_file_url": github_file_url,
             "github_repo_url": github_repo_url,
             "status_code": 200,
         }
-        serializer = serializers.UserDetails(data)
-        return Response(serializer.data)
+        # serializer = serializers.UserDetails(data)
+        return Response(data)
